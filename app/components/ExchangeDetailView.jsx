@@ -16,10 +16,9 @@ function getSocialLinks(ex) {
 }
 
 export default function ExchangeDetailView({ exchange }) {
-  console.log(exchange);
   return (
     <div className="flex flex-col px-4 max-w-full">
-      <div className="border-b border-gray-300 pb-2">
+      <div className="border-b border-gray-300 pb-2 max-w-2xl self-center w-full">
         <div className="flex flex-row items-start gap-3">
             <img
               alt={`${exchange.Name} logo`}
@@ -31,9 +30,22 @@ export default function ExchangeDetailView({ exchange }) {
               {exchange.name}
             </h2>
             <p className="">
-              {exchange.year_established && `${exchange.year_established}-`}
               {exchange.country}
             </p>
+          </div>
+          <div className="hidden sm:flex flex-col items-end flex-grow">
+            <div className="flex-grow text-right">
+              <span className="font-light text-sm">Trust Rank</span>
+              <span className="font-medium text-xl ml-2">
+                {exchange.trust_score_rank || 'N/A'}
+              </span>
+            </div>
+            <div className="w-full text-right">
+              <span className="font-light text-sm">Established</span>
+              <span className="font-medium text-xl ml-2">
+                {exchange.year_established || '?'}
+              </span>
+            </div>
           </div>
         </div>
         <div className="flex flex-row items-start mt-2 max-w-full">
@@ -46,28 +58,30 @@ export default function ExchangeDetailView({ exchange }) {
           </a>
         </div>
       </div>
-      <h4 className="inline-flex gap-x-1 items-center font-medium text-lg">
-        About
-        <div className="flex-grow text-right">
-          <span className="font-light text-sm">Trust Rank</span>
+      <div className="flex flex-col items-center w-full">
+        <div className="max-w-prose w-full">
+          <h4 className="flex gap-x-1 items-center font-medium text-lg w-full">
+            About
+            <div className="flex-grow text-right sm:hidden">
+              <span className="font-light text-sm">Trust Rank</span>
+              <span className="font-medium text-xl ml-2">
+                {exchange.trust_score_rank || 'N/A'}
+              </span>
+            </div>
+          </h4>
+          <p className="indent-4">{exchange.description}</p>
+        </div>
+        <div className="w-full text-right sm:hidden">
+          <span className="font-light text-sm">Established</span>
           <span className="font-medium text-xl ml-2">
-            {exchange.trust_score_rank || 'N/A'}
+            {exchange.year_established}
           </span>
         </div>
-      </h4>
-      <p className="indent-4">{exchange.description}</p>
-      <div className="w-full text-right">
-        <span className="font-light text-sm">Established</span>
-        <span className="font-medium text-xl ml-2">
-          {exchange.year_established}
-        </span>
-      </div>
-      <h4 className="inline-flex gap-x-1 items-center font-medium text-lg">
-        Social Media
-        <ShareIcon className="w-5 h-5" />
-      </h4>
-      <div className="flex flex-col items-center">
-        <div className="">
+        <h4 className="inline-flex gap-x-1 items-center font-medium text-lg mt-2">
+          Social Media
+          <ShareIcon className="w-5 h-5" />
+        </h4>
+        <div className="flex flex-col items-start pl-2">
           {getSocialLinks(exchange).map((link) => (
             <a key={link} href={link} className="font-light text-cyan-600 hover:underline inline-flex items-center text-sm">
               {link}
