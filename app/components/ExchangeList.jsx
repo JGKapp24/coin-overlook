@@ -3,7 +3,7 @@ import { Link } from "remix";
 export default function ExchangeList({ exchanges }) {
   return (
     <div className="flex flex-col items-center md:block w-full">
-      <div className="flex flex-col items-stretch md:grid md:grid-cols-2 lg:grid-cols-3 px-3 md:px-6 lg:px-10 gap-2">
+      <div className="flex flex-col items-stretch md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 px-3 md:px-6 lg:px-10 gap-2">
         {exchanges.map((ex) => (
           <Link
             key={ex.id}
@@ -13,7 +13,7 @@ export default function ExchangeList({ exchanges }) {
             <img alt={`${ex.Name} logo`} src={ex.image} className="" />
             <div className="flex flex-col items-start">
               <span className="font-medium text-lg">{ex.name}</span>
-              <span className="font-light text-sm text-cyan-600 hover:underline">
+              <span className="font-light text-sm text-cyan-600">
                 {ex.url}
               </span>
             </div>
