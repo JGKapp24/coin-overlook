@@ -91,7 +91,7 @@ export default function ExchangeDetailView({ exchange }) {
           </div>
           <Link
           to="/"
-          className="self-end px-2 py-1 rounded-md bg-gray-200 hover:bg-gray-400 group inline-flex items-center gap-x-2 focus:ring-2 focus:ring-offset-1 focus:ring-cyan-600 focus:outline-none"
+          className="mt-4 self-end px-2 py-1 rounded-md bg-gray-200 hover:bg-gray-400 group inline-flex items-center gap-x-2 focus:ring-2 focus:ring-offset-1 focus:ring-cyan-600 focus:outline-none"
           >
             <ArrowLeftIcon className="hidden group-focus:inline-block group-hover:inline-block w-4 h-4" />
             Back to ExchangeList
