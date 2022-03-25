@@ -74,7 +74,7 @@ export default function ExchangeDetailView({ exchange }) {
           <div className="w-full text-right sm:hidden">
             <span className="font-light text-sm">Established</span>
             <span className="font-medium text-xl ml-2">
-              {exchange.year_established}
+              {exchange.year_established || '?'}
             </span>
           </div>
           <h4 className="inline-flex gap-x-1 items-center font-medium text-lg mt-2 self-center">
