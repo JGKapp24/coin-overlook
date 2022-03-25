@@ -1,4 +1,5 @@
-import { ExternalLinkIcon, ShareIcon } from '@heroicons/react/outline'
+import { ArrowLeftIcon, ExternalLinkIcon, ShareIcon } from '@heroicons/react/outline'
+import { Link } from 'remix';
 
 function processTwitterHandle(handle) {
   return !handle ? '' : `https://twitter.com/${handle}`;
@@ -59,7 +60,7 @@ export default function ExchangeDetailView({ exchange }) {
         </div>
       </div>
       <div className="flex flex-col items-center w-full">
-        <div className="max-w-prose w-full">
+        <div className="max-w-prose w-full flex flex-col">
           <h4 className="flex gap-x-1 items-center font-medium text-lg w-full">
             About
             <div className="flex-grow text-right sm:hidden">
@@ -70,24 +71,31 @@ export default function ExchangeDetailView({ exchange }) {
             </div>
           </h4>
           <p className="indent-4">{exchange.description}</p>
-        </div>
-        <div className="w-full text-right sm:hidden">
-          <span className="font-light text-sm">Established</span>
-          <span className="font-medium text-xl ml-2">
-            {exchange.year_established}
-          </span>
-        </div>
-        <h4 className="inline-flex gap-x-1 items-center font-medium text-lg mt-2">
-          Social Media
-          <ShareIcon className="w-5 h-5" />
-        </h4>
-        <div className="flex flex-col items-start pl-2">
-          {getSocialLinks(exchange).map((link) => (
-            <a key={link} href={link} className="font-light text-cyan-600 hover:underline inline-flex items-center text-sm">
-              {link}
-              <ExternalLinkIcon className="w-4 h-4 ml-1 mt-0.5 self-start" />
-            </a>
-          ))}
+          <div className="w-full text-right sm:hidden">
+            <span className="font-light text-sm">Established</span>
+            <span className="font-medium text-xl ml-2">
+              {exchange.year_established}
+            </span>
+          </div>
+          <h4 className="inline-flex gap-x-1 items-center font-medium text-lg mt-2 self-center">
+            Social Media
+            <ShareIcon className="w-5 h-5" />
+          </h4>
+          <div className="flex flex-col items-start pl-2 self-center">
+            {getSocialLinks(exchange).map((link) => (
+              <a key={link} href={link} className="font-light text-cyan-600 hover:underline inline-flex items-center text-sm">
+                {link}
+                <ExternalLinkIcon className="w-4 h-4 ml-1 mt-0.5 self-start" />
+              </a>
+            ))}
+          </div>
+          <Link
+          to="/"
+          className="self-end px-2 py-1 rounded-md bg-gray-200 hover:bg-gray-400 group inline-flex items-center gap-x-2 focus:ring-2 focus:ring-offset-1 focus:ring-cyan-600 focus:outline-none"
+          >
+            <ArrowLeftIcon className="hidden group-focus:inline-block group-hover:inline-block w-4 h-4" />
+            Back to ExchangeList
+          </Link>
         </div>
       </div>
     </div>
