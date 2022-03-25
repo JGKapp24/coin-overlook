@@ -81,7 +81,13 @@ export default function ExchangeDetailView({ exchange }) {
               </span>
             </div>
           </h4>
-          <p className="indent-4">{exchange.description}</p>
+          <p
+            className={`indent-4 ${
+              !exchange.description && "italic text-sm font-light"
+            }`}
+          >
+            {exchange.description || "Description Missing"}
+          </p>
           <div className="w-full text-right sm:hidden">
             <span className="font-light text-sm">Established</span>
             <span className="font-medium text-xl ml-2">
