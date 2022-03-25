@@ -13,9 +13,7 @@ export default function ExchangeList({ exchanges }) {
             <img alt={`${ex.Name} logo`} src={ex.image} className="" />
             <div className="flex flex-col items-start">
               <span className="font-medium text-lg">{ex.name}</span>
-              <span className="font-light text-sm text-cyan-600">
-                {ex.url}
-              </span>
+              <span className="font-light text-sm text-cyan-600">{ex.url}</span>
             </div>
             <div className="flex-grow flex flex-col items-end">
               <span className="text-right text-sm">{ex.country}</span>
@@ -28,5 +26,5 @@ export default function ExchangeList({ exchanges }) {
         ))}
       </div>
     </div>
-  )
+  );
 }

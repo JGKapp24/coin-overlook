@@ -10,5 +10,5 @@ export default function Header() {
         </NavLink>
       </h1>
     </div>
-  )
+  );
 }
